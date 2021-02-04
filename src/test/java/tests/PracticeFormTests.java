@@ -9,29 +9,25 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTests {
-
-
+    // Variables
+    String firstName = "Lea",
+    String lastName = "Test",
+    String email = "lea@test.tv",
+    String phone = "1234567890",
+    String month = "6",
+    String year = "1977",
+    String day = "13",
+    String state = "NCR",
+    String city = "Gurgaon",
+    String subject = "Chemistry";
     @Test
     void dataAppearsInForm() {
         open("https://demoqa.com/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
-
-        //Variables
-        String firstName = "Lea",
-                lastName = "Test",
-                email = "lea@test.tv",
-                phone = "1234567890",
-                month = "6",
-                year = "1977",
-                day = "13",
-                state = "NCR",
-                city = "Gurgaon",
-                subject = "Chemistry";
-
-        //Set First name | Last name
+        // Set First name | Last name
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
-        //set Email | Gender | Phone number
+        // Set Email | Gender | Phone number
         $("#userEmail").setValue(email);
         $("#gender-radio-1").click(ClickOptions.usingDefaultMethod());
         $("#userNumber").setValue(phone);
@@ -47,19 +43,15 @@ public class PracticeFormTests {
         $("#hobbies-checkbox-2").click(ClickOptions.usingJavaScript());
         $("#hobbies-checkbox-3").click(ClickOptions.usingJavaScript());
         // Image upload from local drive
-        $("#uploadPicture").uploadFile(new File("/Users/user/Downloads/IMG_1285.jpg"));
+        $("#uploadPicture").uploadFile(new File("src/resourses/IMG_1285.jpg"));
         // Set Address and State
         $("#currentAddress").setValue("Very very long address for this test");
         $("#react-select-3-input").val(state).pressEnter();
         $("#react-select-4-input").val(city).pressEnter();
-
+        // Submit form
         $("#submit").click();
-
-        //sleep(500);
-
         // Check that the form opened
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-
         // Verify results
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),
                 text(email),
@@ -71,12 +63,7 @@ public class PracticeFormTests {
                 text("IMG_1285.jpg"),
                 text("Very very long address for this test"),
                 text(state + " " + city));
-
         // Close the form
         $("#closeLargeModal").click();
-        sleep(500);
-
-
-
     }
 }

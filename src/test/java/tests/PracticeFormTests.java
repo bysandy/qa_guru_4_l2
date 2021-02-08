@@ -10,15 +10,15 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTests {
     // Variables
-    String firstName = "Lea",
-    String lastName = "Test",
-    String email = "lea@test.tv",
-    String phone = "1234567890",
-    String month = "6",
-    String year = "1977",
-    String day = "13",
-    String state = "NCR",
-    String city = "Gurgaon",
+    String firstName = "Lea";
+    String lastName = "Test";
+    String email = "lea@test.tv";
+    String phone = "1234567890";
+    String month = "6";
+    String year = "1977";
+    String day = "13";
+    String state = "NCR";
+    String city = "Gurgaon";
     String subject = "Chemistry";
     @Test
     void dataAppearsInForm() {
